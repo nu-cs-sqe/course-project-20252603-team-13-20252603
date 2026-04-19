@@ -2,8 +2,10 @@
 # PROJECT NAME
 
 ## Contributors
-- PERSON
-- PERSON
+- Samuel Grayson
+- Connor King
+- Luke Wejman
+- Yucheng Qiu
 
 ## Dependencies
 - JDK 11
