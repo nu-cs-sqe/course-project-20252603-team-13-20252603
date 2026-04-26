@@ -25,42 +25,51 @@
 
 ### Main Flow
 1. Player clicks **“Start Game.”**
-2. System asks for the number of players.
-3. Players enter the total number of players.
-4. System optionally asks for player names and/or lets each player choose a color.
-5. System validates that the number of players is between 2 and 6.
-6. System initializes the game board with all 42 territories.
-7. System randomly determines which player receives each territory.
-8. System places 1 army on each assigned territory.
-9. System calculates each player’s total starting armies based on the player count.
-10. System subtracts the armies already placed on owned territories from each player’s total starting army pool.
-11. System allows players, in turn order or setup order, to place their remaining starting armies on territories they own until all starting armies are placed.
-12. System determines the starting player and initializes the full turn order.
-13. System starts the game with the first player’s reinforcement phase.
+2. System displays **6 colored squares/icons**, each representing an available player color.
+3. A player clicks one available color square/icon to join the game.
+4. System prompts that player to enter a name through a popup.
+5. Player enters their name.
+6. System registers the player with the selected color and entered name.
+7. System makes the selected color unavailable so it cannot be chosen again.
+8. Additional players repeat Steps 3–7 until all desired players have joined.
+9. The **Start/Next** button becomes enabled once at least 2 players have joined.
+10. Player clicks **“Start/Next”** to confirm the selected players and begin setup.
+11. System initializes the game board with all **42 territories**.
+12. System randomly assigns each territory to exactly one player.
+13. System places **1 army** on each assigned territory.
+14. System calculates each player’s total starting armies based on the player count.
+15. System subtracts the armies already placed on owned territories from each player’s available starting army pool.
+16. System determines the full **turn order**.
+17. Players place their remaining starting armies on territories they own, following the determined turn order.
+18. Each time a player places armies, the system checks that the number placed does not exceed the number of armies that player still has available.
+19. Once all starting armies have been placed, system starts the game with the first player’s **reinforcement phase**.
 
 ### Alternate Flows
-- **5.a** The system detects that the entered number of players is invalid.  
-- **5.b** The system displays an error message indicating that Risk requires 2 to 6 players.  
-- **5.c** The system asks the user to re-enter the number of players.  
-- **5.d** Resume at Step 2.  
+- **4.a** The player closes the name popup or leaves the name blank.  
+- **4.b** The system does not register that player.  
+- **4.c** Resume at Step 3.
 
-- **4.a** Two players choose the same color.  
-- **4.b** The system indicates that colors must be unique.  
-- **4.c** The affected player must choose another available color.  
-- **4.d** Resume at Step 4.  
+- **9.a** Fewer than 2 players have joined.  
+- **9.b** The **Start/Next** button remains disabled.  
+- **9.c** Additional players must join before setup can continue.
 
-- **11.a** A player attempts to place an army on a territory they do not own.  
-- **11.b** The system rejects the move and displays an error message.  
-- **11.c** The player must choose one of their own territories.  
-- **11.d** Resume at Step 11.
+- **17.a** A player attempts to place an army on a territory they do not own.  
+- **17.b** Makes all territory they do not own greyed out, or the system rejects the move and displays an error message.  
+- **17.c** The player must choose one of their own territories.  
+- **17.d** Resume at Step 17.
+
+- **18.a** A player attempts to place more armies than they have available.  
+- **18.b** The system rejects the move and displays an error message.  
+- **18.c** The player must enter a valid number of armies to place.  
+- **18.d** Resume at Step 17.
 
 ### Postconditions
-- All players have been registered and assigned unique colors.
+- All players have been registered with unique names and unique colors.
 - All 42 territories are assigned to players.
 - Each territory contains at least 1 army.
 - All players have placed their full starting armies.
 - The turn order has been initialized.
-- The game is ready for the first player to begin their turn.
+- The game is ready for the first player to begin the reinforcement phase.
 
 ---
 
