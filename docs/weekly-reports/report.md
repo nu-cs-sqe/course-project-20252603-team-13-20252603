@@ -8,17 +8,27 @@
 
 # Week 4 (04/19/2026-04/26/2026)
 **Planning and Progress Tracking**:
+
 Samuel Grayson
 1. [done] : Reviewed the User Story and provided feedback ([Links to PR](https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/5)), Update GitHub Project Tasks
 2. [in-progress] : Working to implement game logic for player creation and validation (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/7) (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/4)
 Person
+
 YC Qiu
-1. [done]: Working on the user story
+1. [done]: Discuss and finalize the user story, set up GitHub issues.
 2. [done]: Add Basic gamestate, player, and territory classes and tests.
 3. [done]: Territory adjancent table, continent lookup table
 4. [in-progress]: helper method to assign armies to territory
 
+Connor King
+1. [done]: Discuss and finalize the user story, set up GitHub issues.
+
+Luke Wejman
+1. [done]: Discuss and finalize the user story, set up GitHub issues.
+
+
+# Week 5 (04/26/2026-05/03/2026)
+**Planning and Progress Tracking**:
 1. [done] Person: Task (Links to PR)
 2. [not started] Person: Task (Links to PR)
 3. [80% done] Person: Task (Links to PR)
-
