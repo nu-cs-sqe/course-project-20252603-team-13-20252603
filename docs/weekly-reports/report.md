@@ -29,6 +29,8 @@ Luke Wejman
 
 # Week 5 (04/26/2026-05/03/2026)
 **Planning and Progress Tracking**:
-1. [done] Person: Task (Links to PR)
-2. [not started] Person: Task (Links to PR)
-3. [80% done] Person: Task (Links to PR)
+
+Samuel Grayson 
+1. [in-progress] : Working to implement game logic for player creation and validation (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/7) (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/4)
+2. [done] : Completed code review of YC's PR ([Links to PR]https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/16)
+   
