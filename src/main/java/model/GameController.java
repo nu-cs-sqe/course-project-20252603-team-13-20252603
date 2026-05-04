@@ -9,6 +9,8 @@ public class GameController{
     private GameState gameState;
     private ArrayList<Integer> territory_distro;
 
+    public GameController() {
+    }
     // void initializeTurnOrder(GameState gameState)
     public void initializeTurnOrder(GameState gameState){
         List<Player> players_TO = gameState.getPlayers();
@@ -27,7 +29,7 @@ public class GameController{
 
     public GameState createNewGame(List<String> names, List<String> colors){
         GameState gameState = new GameState();
-
+        gameState.setCurrentPhase(GamePhase.SETUP);
 
         ArrayList<Player> players = new ArrayList<>();
         ArrayList<Territory> territories = new ArrayList<>();
@@ -198,25 +200,6 @@ public class GameController{
         return players;
     }
 
-//    private int territory_distributor(int num_players, int index){
-//        if (num_players == 2){
-//            return territory_distro.get(index);
-//        }
-//        else if (num_players == 3){
-//            return territory_distro.get(index);
-//        }
-//        else if (num_players == 4){
-//            return territory_distro.get(index);
-//        }
-//        else if (num_players == 5){
-//            return territory_distro.get(index);
-//        }
-//        else {
-//            return territory_distro.get(index);
-//        }
-//
-//    }
-
     private int army_distributor(int num_players) {
         if (num_players == 2){
             return 40;
@@ -236,13 +219,12 @@ public class GameController{
     }
 
     // orchestration method that calls the setup steps in order
-    public void orchestration(){
-        List<String> pre_names = List.of("Adam", "Bob", "Chloe", "David");
-        List<String> pre_colors = List.of("Red", "Yellow", "Green", "Blue");
+    public GameState orchestration(List<String> pre_names, List<String> pre_colors){
         GameState gameState = createNewGame(pre_names, pre_colors);
         initializeTurnOrder(gameState);
         startFirstTurn(gameState);
         gameState.setCurrentPhase(GamePhase.REINFORCEMENT);
+        return gameState;
 
     }
 
