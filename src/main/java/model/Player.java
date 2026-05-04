@@ -1,20 +1,22 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
 
 	private int id;
 	private String name;
 	private String color;
 	private int remainingArmiesToPlace;
+	private List<Territory> controlledTerritories;
 
-	public Player() {
-	}
-
-	public Player(int id, String name, String color, int remainingArmiesToPlace) {
+	public Player(int id, String name, String color, int remainingArmiesToPlace, List<Territory> controlledTerritories) {
 		setId(id);
 		setName(name);
 		setColor(color);
 		setRemainingArmiesToPlace(remainingArmiesToPlace);
+		setControlledTerritories(controlledTerritories);
 	}
 
 	public int getId() {
@@ -60,4 +62,28 @@ public class Player {
 		}
 		this.remainingArmiesToPlace = remainingArmiesToPlace;
 	}
+
+	public List<Territory> getControlledTerritories() {
+		return controlledTerritories;
+	}
+
+	public void setControlledTerritories(List<Territory> territories) {
+		if (territories == null) {
+			this.controlledTerritories = new ArrayList<>();
+		} else {
+			this.controlledTerritories = new ArrayList<>(territories);
+		}
+	}
+
+	public int getControlledTerritoryCount() {
+		return controlledTerritories.size();
+	}
+
+	public void addControlledTerritory(Territory territory) {
+		if (territory != null && !controlledTerritories.contains(territory)) {
+			controlledTerritories.add(territory);
+		}
+	}
+
+	
 }
