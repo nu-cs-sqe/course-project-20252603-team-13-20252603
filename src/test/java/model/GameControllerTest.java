@@ -95,6 +95,13 @@ void shouldSetGamePhaseToReinforcementWhenSetupCompletes(){
 
 @Test
 void shouldReturnFullyInitializedGameState() {
+    List<String> names = List.of("Adam", "Bob");
+    List<String> colors = List.of("Red", "Yellow");
+    GameController gameController1 = new GameController();
+    GameState gameState1 = gameController1.orchestration(names, colors);
+    assertEquals(names.size(), gameState1.getPlayers().size());
+    assertEquals(42, gameState1.getTerritories().size());
+
 
 }
 
