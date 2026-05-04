@@ -33,6 +33,9 @@ public class GameController{
 
     public GameState createNewGame(List<String> names, List<String> colors){
         // create a new game state
+        if (names.size() != colors.size()){
+            throw new IllegalArgumentException("Names and Colors need to be the same number. Please try again!!");
+        }
         GameState gameState = new GameState();
         // set the phase to setup
         gameState.setCurrentPhase(GamePhase.SETUP);
