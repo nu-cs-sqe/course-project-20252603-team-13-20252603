@@ -62,6 +62,12 @@ void createGameStateFunctional_6_Players(){
 void shouldInitializeTurnOrderAfterSetup() {
     List<String> names = List.of("Adam", "Bob");
     List<String> colors = List.of("Red", "Yellow");
+    GameController gameController1 = new GameController();
+    GameState gameState1 = gameController1.orchestration(names, colors);
+
+    assertNotNull(gameState1.getTurnOrder());
+    assertEquals(42, gameState1.getTerritories().size());
+    assertEquals(2, gameState1.getPlayers().size());
 
 }
 
