@@ -71,12 +71,28 @@ void shouldInitializeTurnOrderAfterSetup() {
 
 }
 
+@Test
+void shouldSetCurrentPlayerToFirstPlayerInTurnOrder() {
+    List<String> names = List.of("Adam", "Bob");
+    List<String> colors = List.of("Red", "Yellow");
+    GameController gameController1 = new GameController();
+    GameState gameState1 = gameController1.orchestration(names, colors);
 
-// shouldSetCurrentPlayerToFirstPlayerInTurnOrder()
+    Player player1_actual = gameState1.getCurrentPlayer();
+    Player player1_expected = gameState1.getPlayers().get(0);
 
-// shouldSetGamePhaseToReinforcementWhenSetupCompletes()
+    assertEquals(player1_expected, player1_actual);
+}
 
-// shouldReturnFullyInitializedGameState()
+@Test
+void shouldSetGamePhaseToReinforcementWhenSetupCompletes(){
+
+}
+
+@Test
+void shouldReturnFullyInitializedGameState() {
+
+}
 
 
 }
