@@ -7,8 +7,12 @@ import java.util.List;
 
 public class GameController{
     private GameState gameState;
+    // this variable is meant to store randomized distribution of territories
+    // under some cases, territories will not be evenly distributed, this will allow up to allocate the
+    // distributions in one place
     private ArrayList<Integer> territory_distro;
 
+    // initialization
     public GameController() {
     }
     // void initializeTurnOrder(GameState gameState)
@@ -28,35 +32,27 @@ public class GameController{
     // GameState createNewGame(List<String> names, List<PlayerColor> colors)
 
     public GameState createNewGame(List<String> names, List<String> colors){
+        // create a new game state
         GameState gameState = new GameState();
+        // set the phase to setup
         gameState.setCurrentPhase(GamePhase.SETUP);
-
+        // allocation space for players and territories
         ArrayList<Player> players = new ArrayList<>();
         ArrayList<Territory> territories = new ArrayList<>();
         int num_players = names.size();
 
         ArrayList<Player> new_players = player_creation(players, num_players, names, colors);
         Collections.shuffle(new_players);
-        // Do later not necessary now
-        //gameState.setPlayers(new_players);
         setTerritory_distro(num_players);
-
         ArrayList<Territory> init_territories = makeTerritories_init();
         Collections.shuffle(init_territories);
-
-
         ArrayList<Territory> new_territories = distributeTerritories(init_territories, new_players, num_players);
-
-
         ArrayList<Player> updated_players = insert_Remaining_armies(new_players);
-
         gameState.setPlayers(updated_players);
         gameState.setTerritories(new_territories);
-
-
         return gameState;
     }
-
+    // last stage of game initialization, place remaining armies for all the players
     private ArrayList<Player> insert_Remaining_armies(ArrayList<Player> players) {
         int length = players.size();
         int total_armies = army_distributor(length);
@@ -69,6 +65,9 @@ public class GameController{
         return players;
     }
 
+    // function to create territories from scratch
+    // since this is done before player assignment, a ghost player is made in its place
+    // reassignment for all territories will be handled in later helper functions
     private ArrayList<Territory> makeTerritories_init() {
 
         ArrayList<Territory> terras = new ArrayList<>();
@@ -120,8 +119,8 @@ public class GameController{
         return terras;
     }
 
-
-
+    // distributes territories for all players
+    // utilizes territory distro
     private ArrayList<Territory> distributeTerritories(ArrayList<Territory> territories, ArrayList<Player> players, int num_player) {
         int start = 0;
         for (int i = 0; i < num_player; i++) {
@@ -134,13 +133,10 @@ public class GameController{
                 curr_territory.setArmyCount(1);
             }
             start = end;
-
-
-
         }
         return territories;
     }
-
+    // provided the number of players, store the possible distributions, and shuffle the results, which creates randomness
     private void setTerritory_distro(int num_players){
         if (num_players == 4) {
             ArrayList<Integer> arr = new ArrayList<>();
@@ -185,7 +181,7 @@ public class GameController{
             territory_distro = arr;
         }
     }
-
+    // handles player creation, creates a new player for every player color pair
     private ArrayList<Player> player_creation(ArrayList<Player> players,
                                          int num_players,
                                          List<String> names,
@@ -199,7 +195,7 @@ public class GameController{
         }
         return players;
     }
-
+    // determines the total army for every player, prior to territory assignment
     private int army_distributor(int num_players) {
         if (num_players == 2){
             return 40;
