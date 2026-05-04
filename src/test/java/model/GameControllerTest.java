@@ -26,6 +26,21 @@ void createGameStateFunctional_2_Players(){
 
 
 }
+@Test
+void createGameStateFunctional_3_Players(){
+    List<String> names = List.of("Adam", "Bob", "Chloe");
+    List<String> colors = List.of("Red", "Yellow", "Blue");
+    GameController gameController1 = new GameController();
+    GameState gameState1 = gameController1.createNewGame(names, colors);
+    assertEquals(42, gameState1.getTerritories().size());
+    assertEquals(3, gameState1.getPlayers().size());
+
+    assertEquals(21, gameState1.getPlayers().get(0).getRemainingArmiesToPlace());
+    assertEquals(21, gameState1.getPlayers().get(1).getRemainingArmiesToPlace());
+    assertEquals(21, gameState1.getPlayers().get(2).getRemainingArmiesToPlace());
+
+
+}
 
 // shouldInitializeTurnOrderAfterSetup()
 @Test
