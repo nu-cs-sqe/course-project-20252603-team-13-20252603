@@ -82,6 +82,7 @@ void shouldSetCurrentPlayerToFirstPlayerInTurnOrder() {
     Player player1_expected = gameState1.getPlayers().get(0);
 
     assertEquals(player1_expected, player1_actual);
+    assertSame(player1_expected, player1_actual);
 }
 
 @Test
