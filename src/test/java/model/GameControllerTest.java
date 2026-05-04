@@ -86,7 +86,11 @@ void shouldSetCurrentPlayerToFirstPlayerInTurnOrder() {
 
 @Test
 void shouldSetGamePhaseToReinforcementWhenSetupCompletes(){
-
+    List<String> names = List.of("Adam", "Bob");
+    List<String> colors = List.of("Red", "Yellow");
+    GameController gameController1 = new GameController();
+    GameState gameState1 = gameController1.orchestration(names, colors);
+    assertEquals(GamePhase.REINFORCEMENT, gameState1.getCurrentPhase());
 }
 
 @Test
