@@ -29,6 +29,8 @@ Luke Wejman
 
 # Week 5 (04/26/2026-05/03/2026)
 **Planning and Progress Tracking**:
-1. [done] Person: Task (Links to PR)
-2. [not started] Person: Task (Links to PR)
-3. [80% done] Person: Task (Links to PR)
+
+Luke Wejman
+1. [In-progress] : StartingNewGame: Initialize turn order and finalize game setup state
+   (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/10)
+PR (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/22)
