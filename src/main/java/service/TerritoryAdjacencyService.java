@@ -15,15 +15,9 @@ public class TerritoryAdjacencyService {
 	private final Map<String, Territory> territoryByName = new HashMap<>();
 
 	public void initializeTerritoryAdjacency(List<Territory> territories) {
-		if (territories == null) {
-			throw new IllegalArgumentException("territories cannot be null");
-		}
 
 		territoryByName.clear();
 		for (Territory territory : territories) {
-			if (territory == null) {
-				throw new IllegalArgumentException("territories cannot contain null values");
-			}
 
 			String name = territory.getName();
 			if (territoryByName.containsKey(name)) {
@@ -34,23 +28,14 @@ public class TerritoryAdjacencyService {
 	}
 
 	public boolean areAdjacent(Territory territoryA, Territory territoryB) {
-		if (territoryA == null || territoryB == null) {
-			return false;
-		}
 
 		List<String> adjacentNames = TerritoryAdjacencyCatalog.ADJACENT_MAP.get(territoryA.getName());
 		return adjacentNames != null && adjacentNames.contains(territoryB.getName());
 	}
 
 	public List<Territory> getAdjacentTerritories(Territory territory) {
-		if (territory == null) {
-			return List.of();
-		}
 
 		List<String> adjacentNames = TerritoryAdjacencyCatalog.ADJACENT_MAP.get(territory.getName());
-		if (adjacentNames == null) {
-			return List.of();
-		}
 
 		List<Territory> adjacentTerritories = new ArrayList<>();
 		for (String adjacentName : adjacentNames) {
@@ -74,15 +59,9 @@ public class TerritoryAdjacencyService {
 	}
 
 	public Territory findByName(List<Territory> territories, String name) {
-		if (territories == null) {
-			throw new IllegalArgumentException("territories cannot be null");
-		}
-		if (name == null || name.trim().isEmpty()) {
-			throw new IllegalArgumentException("name cannot be null or blank");
-		}
 
 		for (Territory territory : territories) {
-			if (territory != null && territory.getName().equals(name)) {
+			if (territory.getName().equals(name)) {
 				return territory;
 			}
 		}

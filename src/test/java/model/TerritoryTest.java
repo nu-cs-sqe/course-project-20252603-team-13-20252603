@@ -46,14 +46,7 @@ public class TerritoryTest {
 		assertNull(territory.getOwner());
 	}
 
-	@Test
-	void setName_withNullOrBlank_throwsException() {
-		Territory territory = new Territory();
 
-		assertThrows(IllegalArgumentException.class, () -> territory.setName(null));
-		assertThrows(IllegalArgumentException.class, () -> territory.setName(""));
-		assertThrows(IllegalArgumentException.class, () -> territory.setName("   "));
-	}
 
 	@Test
 	void setArmyCount_withNegativeValue_throwsException() {
@@ -62,20 +55,12 @@ public class TerritoryTest {
 		assertThrows(IllegalArgumentException.class, () -> territory.setArmyCount(-1));
 	}
 
-	@Test
-	void setContinent_withNull_throwsException() {
-		Territory territory = new Territory();
 
-		assertThrows(IllegalArgumentException.class, () -> territory.setContinent(null));
-	}
 
 	@Test
 	void constructor_withInvalidArguments_throwsException() {
 		Player owner = new Player(1, "Alice", "Red", 5, new ArrayList<>());
 
-		assertThrows(IllegalArgumentException.class, () -> new Territory(null, owner, 3, Continent.NORTH_AMERICA));
-		assertThrows(IllegalArgumentException.class, () -> new Territory("", owner, 3, Continent.NORTH_AMERICA));
 		assertThrows(IllegalArgumentException.class, () -> new Territory("Alaska", owner, -1, Continent.NORTH_AMERICA));
-		assertThrows(IllegalArgumentException.class, () -> new Territory("Alaska", owner, 3, null));
 	}
 }

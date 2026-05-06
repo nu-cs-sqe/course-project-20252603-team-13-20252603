@@ -18,12 +18,6 @@ public class TerritoryAssignmentService {
 	}
 
 	public void assignTerritoryToPlayer(Territory territory, Player player) {
-		if (territory == null) {
-			throw new IllegalArgumentException("territory cannot be null");
-		}
-		if (player == null) {
-			throw new IllegalArgumentException("player cannot be null");
-		}
 
 		territory.setOwner(player);
 	}
@@ -32,8 +26,6 @@ public class TerritoryAssignmentService {
 	 * Assign armies to a named territory in the given game state.
 	 */
 	public static void assignArmyToTerritory(GameState state, Player player, String territoryName, int armyCount) {
-		Objects.requireNonNull(state, "state cannot be null");
-		Objects.requireNonNull(player, "player cannot be null");
 
 		if (player.getRemainingArmiesToPlace() < armyCount) {
 			throw new IllegalArgumentException("Player does not have enough armies to place");
@@ -55,9 +47,9 @@ public class TerritoryAssignmentService {
 	 */
 	// TODO: This method will be changed to assign territories based on player preferences in the future. For now, it just does a random assignment.
 	public void assignTerritories(GameState gameState) {
-		Objects.requireNonNull(gameState, "gameState cannot be null");
+		
 		List<Player> players = gameState.getPlayers();
-		if (players == null || players.isEmpty()) {
+		if (players.isEmpty()) {
 			throw new IllegalArgumentException("gameState must have at least one player");
 		}
 
