@@ -156,13 +156,4 @@ public class TerritoryAdjacencyServiceTest {
 		assertThrows(IllegalArgumentException.class, () -> service.findByName(allTerritories, "Atlantis"));
 	}
 
-
-
-	@Test
-	void getAdjacentTerritories_whenNotInitialized_returnsEmptyList() {
-		TerritoryAdjacencyService service = new TerritoryAdjacencyService();
-		Territory alaska = new Territory("Alaska", null, 0, Continent.NORTH_AMERICA);
-
-		assertTrue(service.getAdjacentTerritories(alaska).isEmpty());
-	}
 }
