@@ -34,3 +34,10 @@ Luke Wejman
 1. [In-progress] : StartingNewGame: Initialize turn order and finalize game setup state
    (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/10)
 PR (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/22)
+
+YC Qiu
+1. [Pending PR]: Initialize map territories and assign each territory to exactly one player. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/9)
+2. [Pending PR]: Implement adjacency relationships between territories. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/13)
+   PR(https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/16)
+3. [Done]: Set up GitHub issues for the next iteration.
+
