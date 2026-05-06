@@ -30,7 +30,7 @@ public class TerritoryAdjacencyService {
 	public boolean areAdjacent(Territory territoryA, Territory territoryB) {
 
 		List<String> adjacentNames = TerritoryAdjacencyCatalog.ADJACENT_MAP.get(territoryA.getName());
-		return adjacentNames != null && adjacentNames.contains(territoryB.getName());
+		return adjacentNames.contains(territoryB.getName());
 	}
 
 	public List<Territory> getAdjacentTerritories(Territory territory) {
@@ -40,9 +40,7 @@ public class TerritoryAdjacencyService {
 		List<Territory> adjacentTerritories = new ArrayList<>();
 		for (String adjacentName : adjacentNames) {
 			Territory adjacentTerritory = territoryByName.get(adjacentName);
-			if (adjacentTerritory != null) {
-				adjacentTerritories.add(adjacentTerritory);
-			}
+			adjacentTerritories.add(adjacentTerritory);
 		}
 		return List.copyOf(adjacentTerritories);
 	}
