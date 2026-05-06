@@ -12,19 +12,11 @@ public final class TerritoryService {
     }
 
     public static Territory findTerritoryByName(GameState state, String name) {
-        if (state == null) {
-            throw new IllegalArgumentException("state cannot be null");
-        }
+
         List<Territory> territories = state.getTerritories();
-        if (territories == null) {
-            throw new IllegalArgumentException("territories cannot be null");
-        }
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("name cannot be null or blank");
-        }
 
         for (Territory territory : territories) {
-            if (territory != null && territory.getName().equals(name)) {
+            if (territory.getName().equals(name)) {
                 return territory;
             }
         }
@@ -32,9 +24,7 @@ public final class TerritoryService {
     }
 
     public static boolean playerOwnsTerritory(Player player, GameState state, String territoryName) {
-        if (player == null || state == null || territoryName == null || territoryName.trim().isEmpty()) {
-            return false;
-        }
+
         Territory territory = findTerritoryByName(state, territoryName);
         if (territory.getOwner() == null) {
             return false;

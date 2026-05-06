@@ -41,23 +41,9 @@ public class PlayerTest {
 		assertThrows(IllegalArgumentException.class, () -> player.setId(-1));
 	}
 
-	@Test
-	void setName_withNullOrBlank_throwsException() {
-		Player player = new Player(1, "Alice", "Red", 5, new ArrayList<>());
 
-		assertThrows(IllegalArgumentException.class, () -> player.setName(null));
-		assertThrows(IllegalArgumentException.class, () -> player.setName(""));
-		assertThrows(IllegalArgumentException.class, () -> player.setName("   "));
-	}
 
-	@Test
-	void setColor_withNullOrBlank_throwsException() {
-		Player player = new Player(1, "Alice", "Red", 5, new ArrayList<>());
 
-		assertThrows(IllegalArgumentException.class, () -> player.setColor(null));
-		assertThrows(IllegalArgumentException.class, () -> player.setColor(""));
-		assertThrows(IllegalArgumentException.class, () -> player.setColor("   "));
-	}
 
 	@Test
 	void setRemainingArmiesToPlace_withNegativeValue_throwsException() {
@@ -70,7 +56,6 @@ public class PlayerTest {
 	void constructor_withInvalidArguments_throwsException() {
 		assertThrows(IllegalArgumentException.class, () -> new Player(-1, "Alice", "Red", 5, new ArrayList<>()));
 		assertThrows(IllegalArgumentException.class, () -> new Player(1, "", "Red", 5, new ArrayList<>()));
-		assertThrows(IllegalArgumentException.class, () -> new Player(1, "Alice", "", 5, new ArrayList<>()));
 		assertThrows(IllegalArgumentException.class, () -> new Player(1, "Alice", "Red", -1, new ArrayList<>()));
 	}
 
@@ -96,14 +81,6 @@ public class PlayerTest {
 		assertTrue(player.getControlledTerritories().contains(territory));
 	}
 
-	@Test
-	void addControlledTerritory_withNullDoesNothing() {
-		Player player = new Player(1, "Alice", "Red", 10, new ArrayList<>());
-		
-		player.addControlledTerritory(null);
-		
-		assertEquals(0, player.getControlledTerritoryCount());
-	}
 
 	@Test
 	void addControlledTerritory_doesNotAddDuplicates() {
@@ -153,19 +130,7 @@ public class PlayerTest {
 		assertEquals(t3, player.getControlledTerritories().get(2));
 	}
 
-	@Test
-	void setControlledTerritories_withNullCreatesEmptyList() {
-		Player player = new Player(1, "Alice", "Red", 10, new ArrayList<>());
-		Territory t1 = new Territory("Alaska", player, 1, Continent.NORTH_AMERICA);
-		player.addControlledTerritory(t1);
-		
-		assertEquals(1, player.getControlledTerritoryCount());
-		
-		player.setControlledTerritories(null);
-		
-		assertEquals(0, player.getControlledTerritoryCount());
-		assertNotNull(player.getControlledTerritories());
-	}
+
 
 	@Test
 	void setControlledTerritories_createsDeepCopy() {

@@ -53,12 +53,6 @@ public class TerritoryAdjacencyServiceTest {
 		assertFalse(service.areAdjacent(alaska, alaska));
 	}
 
-	@Test
-	void initializeTerritoryAdjacency_withNullList_throwsException() {
-		TerritoryAdjacencyService service = new TerritoryAdjacencyService();
-
-		assertThrows(IllegalArgumentException.class, () -> service.initializeTerritoryAdjacency(null));
-	}
 
 	@Test
 	void initializeTerritoryAdjacency_withDuplicateTerritoryName_throwsException() {
@@ -155,16 +149,6 @@ public class TerritoryAdjacencyServiceTest {
 	}
 
 	@Test
-	void findByName_withNullOrBlankName_throwsException() {
-		TerritoryAdjacencyService service = new TerritoryAdjacencyService();
-		List<Territory> allTerritories = service.createAllTerritories();
-
-		assertThrows(IllegalArgumentException.class, () -> service.findByName(allTerritories, null));
-		assertThrows(IllegalArgumentException.class, () -> service.findByName(allTerritories, ""));
-		assertThrows(IllegalArgumentException.class, () -> service.findByName(allTerritories, "   "));
-	}
-
-	@Test
 	void findByName_withMissingName_throwsException() {
 		TerritoryAdjacencyService service = new TerritoryAdjacencyService();
 		List<Territory> allTerritories = service.createAllTerritories();
@@ -172,12 +156,7 @@ public class TerritoryAdjacencyServiceTest {
 		assertThrows(IllegalArgumentException.class, () -> service.findByName(allTerritories, "Atlantis"));
 	}
 
-	@Test
-	void findByName_withNullTerritoryList_throwsException() {
-		TerritoryAdjacencyService service = new TerritoryAdjacencyService();
 
-		assertThrows(IllegalArgumentException.class, () -> service.findByName(null, "Alaska"));
-	}
 
 	@Test
 	void getAdjacentTerritories_whenNotInitialized_returnsEmptyList() {

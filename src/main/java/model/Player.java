@@ -35,7 +35,7 @@ public class Player {
 	}
 
 	public void setName(String name) {
-		if (name == null || name.trim().isEmpty()) {
+		if (name.trim().isEmpty()) {
 			throw new IllegalArgumentException("name cannot be null or blank");
 		}
 		this.name = name;
@@ -46,9 +46,6 @@ public class Player {
 	}
 
 	public void setColor(String color) {
-		if (color == null || color.trim().isEmpty()) {
-			throw new IllegalArgumentException("color cannot be null or blank");
-		}
 		this.color = color;
 	}
 
@@ -68,11 +65,7 @@ public class Player {
 	}
 
 	public void setControlledTerritories(List<Territory> territories) {
-		if (territories == null) {
-			this.controlledTerritories = new ArrayList<>();
-		} else {
-			this.controlledTerritories = new ArrayList<>(territories);
-		}
+		this.controlledTerritories = new ArrayList<>(territories);
 	}
 
 	public int getControlledTerritoryCount() {
@@ -80,7 +73,7 @@ public class Player {
 	}
 
 	public void addControlledTerritory(Territory territory) {
-		if (territory != null && !controlledTerritories.contains(territory)) {
+		if (!controlledTerritories.contains(territory)) {
 			controlledTerritories.add(territory);
 		}
 	}
