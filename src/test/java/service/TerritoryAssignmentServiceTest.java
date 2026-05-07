@@ -10,6 +10,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import domain.GameConstants;
+import model.BattleResult;
 import model.Continent;
 import model.GameState;
 import model.Player;
@@ -321,5 +322,18 @@ public class TerritoryAssignmentServiceTest {
             assertTrue(t.getOwner().getId() == 1 || t.getOwner().getId() == 2,
                 "Territory " + t.getName() + " owner should be one of the players");
         }
+    }
+
+    // TerritoryService - applyBattleResult tests
+    @Test
+    public void shouldUpdateBothTerritoriesAfterBattleRound() {
+        Territory from = new Territory("Alaska", null, 20, Continent.NORTH_AMERICA);
+        Territory to = new Territory("Greenland", null, 15, Continent.NORTH_AMERICA);
+        BattleResult result = new BattleResult(5, 4);
+
+        TerritoryService.applyBattleResult(from, to, result);
+
+        assertEquals(15, from.getArmyCount(), "Attacker should have 5 fewer armies");
+        assertEquals(11, to.getArmyCount(), "Defender should have 4 fewer armies");
     }
 }
