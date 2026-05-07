@@ -11,7 +11,7 @@ public class TerritoryAdjacencyCatalogTest {
 
 	@Test
 	void adjacentMap_containsAllTerritories() {
-		assertEquals(42, TerritoryAdjacencyCatalog.ADJACENT_MAP.size());
+		assertEquals(GameConstants.TOTAL_TERRITORIES, TerritoryAdjacencyCatalog.ADJACENT_MAP.size());
 	}
 
 	@Test
