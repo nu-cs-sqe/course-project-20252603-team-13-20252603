@@ -21,9 +21,7 @@ public class Territory {
 	}
 
 	public void setName(String name) {
-		if (name == null || name.trim().isEmpty()) {
-			throw new IllegalArgumentException("name cannot be null or blank");
-		}
+
 		this.name = name;
 	}
 
@@ -51,9 +49,6 @@ public class Territory {
 	}
 
 	public void setContinent(Continent continent) {
-		if (continent == null) {
-			throw new IllegalArgumentException("continent cannot be null");
-		}
 		this.continent = continent;
 	}
 }
