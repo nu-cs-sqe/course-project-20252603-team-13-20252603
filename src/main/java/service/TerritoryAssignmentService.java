@@ -41,7 +41,7 @@ public class TerritoryAssignmentService {
 	}
 
 	/**
-	 * Randomly assign all 42 territories to players in game state.
+	 * Randomly assign all {@value domain.GameConstants#TOTAL_TERRITORIES} territories to players in game state.
 	 * Each territory gets 1 army and is assigned to a player.
 	 * Territories are distributed as evenly as possible among players.
 	 */
@@ -53,7 +53,7 @@ public class TerritoryAssignmentService {
 			throw new IllegalArgumentException("gameState must have at least one player");
 		}
 
-		// Create all 42 territories
+		// Create all territories
 		List<Territory> allTerritories = territoryAdjacencyService.createAllTerritories();
 
 		// Assign territories to players in round-robin fashion

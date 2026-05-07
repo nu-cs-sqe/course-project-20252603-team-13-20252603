@@ -11,6 +11,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import domain.GameConstants;
 import domain.TerritoryAdjacencyCatalog;
 import model.Continent;
 import model.Territory;
@@ -100,7 +101,7 @@ public class TerritoryAdjacencyServiceTest {
 		List<Territory> allTerritories = service.createAllTerritories();
 		service.initializeTerritoryAdjacency(allTerritories);
 
-		assertEquals(42, allTerritories.size());
+		assertEquals(GameConstants.TOTAL_TERRITORIES, allTerritories.size());
 		for (Territory territory : allTerritories) {
 			List<Territory> adjacent = service.getAdjacentTerritories(territory);
 			List<String> expectedNames = TerritoryAdjacencyCatalog.ADJACENT_MAP.get(territory.getName());
@@ -133,8 +134,8 @@ public class TerritoryAdjacencyServiceTest {
 			names.add(territory.getName());
 		}
 
-		assertEquals(42, allTerritories.size());
-		assertEquals(42, names.size());
+		assertEquals(GameConstants.TOTAL_TERRITORIES, allTerritories.size());
+		assertEquals(GameConstants.TOTAL_TERRITORIES, names.size());
 	}
 
 	@Test

@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import domain.GameConstants;
 import model.Continent;
 import model.GameState;
 import model.Player;
@@ -130,7 +131,7 @@ public class TerritoryAssignmentServiceTest {
         service.assignTerritories(state);
 
         // Verify 42 territories are assigned
-        assertEquals(42, state.getTerritories().size());
+        assertEquals(GameConstants.TOTAL_TERRITORIES, state.getTerritories().size());
         
         // Verify all territories have exactly 1 army
         for (Territory t : state.getTerritories()) {
@@ -156,7 +157,8 @@ public class TerritoryAssignmentServiceTest {
                 "Territory " + t.getName() + " is assigned multiple times");
             territoryNames.add(t.getName());
         }
-        assertEquals(42, territoryNames.size(), "Should have exactly 42 unique territories");
+        assertEquals(GameConstants.TOTAL_TERRITORIES, territoryNames.size(),
+            "Should have exactly the expected number of unique territories");
     }
 
     @Test
@@ -185,7 +187,8 @@ public class TerritoryAssignmentServiceTest {
                     "Territory " + t.getName() + " owner doesn't match player's controlled list");
             }
         }
-        assertEquals(42, allAssignedTerritories.size(), "All 42 territories should be assigned");
+        assertEquals(GameConstants.TOTAL_TERRITORIES, allAssignedTerritories.size(),
+            "All territories should be assigned");
     }
 
     @Test
