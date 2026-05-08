@@ -29,6 +29,22 @@ Luke Wejman
 
 # Week 5 (04/26/2026-05/03/2026)
 **Planning and Progress Tracking**:
-1. [done] Person: Task (Links to PR)
-2. [not started] Person: Task (Links to PR)
-3. [80% done] Person: Task (Links to PR)
+
+Samuel Grayson 
+1. [in-progress] : Working to implement game logic for player creation and validation (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/7) (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/4)
+2. [done] : Completed code review of YC's PR ([Links to PR]https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/16)
+   
+Luke Wejman
+1. [In-progress] : StartingNewGame: Initialize turn order and finalize game setup state
+   (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/10)
+PR (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/22)
+
+YC Qiu
+1. [Pending PR]: Initialize map territories and assign each territory to exactly one player. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/9)
+2. [Pending PR]: Implement adjacency relationships between territories. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/13)
+   PR(https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/16)
+3. [Done]: Set up GitHub issues for the next iteration.
+
+Connor King
+1. Nothing to report
+
