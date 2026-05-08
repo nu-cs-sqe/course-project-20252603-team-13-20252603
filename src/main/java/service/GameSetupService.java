@@ -7,7 +7,7 @@ import java.util.List;
 public class GameSetupService {
 
     public boolean validatePlayerCount(int playerCount) {
-        return playerCount >= 2;
+        return playerCount >= 2 && playerCount <= 6;
     }
 
 }
