@@ -2,57 +2,61 @@ package service;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameSetupServiceTest {
 
     @Test
     void TC1_ValidateMinimumSizeGame() {
         GameSetupService service = new GameSetupService();
-        assertTrue(service.validatePlayerCount(2));
+        int playerCount = 2;
+        assertDoesNotThrow(() -> service.validatePlayerCount(playerCount));
     }
 
     @Test
     void TC2_ValidateBelowMinimumSizeGame() {
         GameSetupService service = new GameSetupService();
         int playerCount = 1;
-        assertFalse(service.validatePlayerCount(playerCount));
+        assertThrows(IllegalArgumentException.class,
+                () -> service.validatePlayerCount(playerCount));
     }
 
     @Test
     void TC3_ValidateMaximumSizeGame() {
         GameSetupService service = new GameSetupService();
         int playerCount = 6;
-        assertTrue(service.validatePlayerCount(playerCount));
+        assertDoesNotThrow(() -> service.validatePlayerCount(playerCount));
     }
 
     @Test
     void TC4_ValidateAboveMaximumSizeGame() {
         GameSetupService service = new GameSetupService();
         int playerCount = 7;
-        assertFalse(service.validatePlayerCount(playerCount));
+        assertThrows(IllegalArgumentException.class,
+                () -> service.validatePlayerCount(playerCount));
     }
 
     @Test
     void TC5_ValidateINT_MAX() {
         GameSetupService service = new GameSetupService();
         int playerCount = Integer.MAX_VALUE;
-        assertFalse(service.validatePlayerCount(playerCount));
+        assertThrows(IllegalArgumentException.class,
+                () -> service.validatePlayerCount(playerCount));
     }
 
     @Test
     void TC6_ValidateINT_MIN() {
         GameSetupService service = new GameSetupService();
         int playerCount = Integer.MIN_VALUE;
-        assertFalse(service.validatePlayerCount(playerCount));
+        assertThrows(IllegalArgumentException.class,
+                () -> service.validatePlayerCount(playerCount));
     }
 
     @Test
     void TC7_ValidateInRangeOfValidGame() {
         GameSetupService service = new GameSetupService();
         int playerCount = 4;
-        assertTrue(service.validatePlayerCount(playerCount));
+        assertDoesNotThrow(() -> service.validatePlayerCount(playerCount));
     }
 
 }
