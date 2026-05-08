@@ -33,4 +33,12 @@ public class GameSetupServiceTest {
         int playerCount = 7;
         assertFalse(service.validatePlayerCount(playerCount));
     }
+
+    @Test
+    void TC5_ValidateINT_MAX() {
+        GameSetupService service = new GameSetupService();
+        int playerCount = Integer.MAX_VALUE;
+        assertFalse(service.validatePlayerCount(playerCount));
+    }
+
 }
