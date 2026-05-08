@@ -41,4 +41,12 @@ public class GameSetupServiceTest {
         assertFalse(service.validatePlayerCount(playerCount));
     }
 
+    @Test
+    void TC6_ValidateINT_MIN() {
+        GameSetupService service = new GameSetupService();
+        int playerCount = Integer.MIN_VALUE;
+        assertFalse(service.validatePlayerCount(playerCount));
+    }
+
+
 }
