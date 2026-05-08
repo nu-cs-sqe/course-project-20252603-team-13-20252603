@@ -48,5 +48,11 @@ public class GameSetupServiceTest {
         assertFalse(service.validatePlayerCount(playerCount));
     }
 
+    @Test
+    void TC7_ValidateInRangeOfValidGame() {
+        GameSetupService service = new GameSetupService();
+        int playerCount = 4;
+        assertTrue(service.validatePlayerCount(playerCount));
+    }
 
 }
