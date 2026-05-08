@@ -20,4 +20,11 @@ public class GameSetupServiceTest {
         assertFalse(service.validatePlayerCount(playerCount));
     }
 
+    @Test
+    void TC3_ValidateMaximumSizeGame() {
+        GameSetupService service = new GameSetupService();
+        int playerCount = 6;
+        assertTrue(service.validatePlayerCount(playerCount));
+    }
+
 }
