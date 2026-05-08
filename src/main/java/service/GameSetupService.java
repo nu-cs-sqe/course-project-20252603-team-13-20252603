@@ -33,10 +33,10 @@ public class GameSetupService {
     public GameState createNewGame(List<String> names, List<String> colors){
         // create a new game state
         GameState gameState = new GameState();
-        // set the phase to setup
-        // call player generation
-        // call territory generation
-        // call territory distribution
+        // assign players
+        TerritoryAssignmentService TerrService = new TerritoryAssignmentService();
+        TerrService.assignTerritories(gameState);
+
 
         return gameState;
     }
