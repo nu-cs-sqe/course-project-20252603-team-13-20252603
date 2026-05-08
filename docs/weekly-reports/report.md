@@ -45,3 +45,6 @@ YC Qiu
    PR(https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/16)
 3. [Done]: Set up GitHub issues for the next iteration.
 
+Connor King
+1. Nothing to report
+
