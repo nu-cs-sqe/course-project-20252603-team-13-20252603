@@ -9,5 +9,5 @@
 | TC4_ValidateAboveMaximumSizeGame | playerCount is 7       | The playerCount is rejected | :white_checkmark:        |
 | TC5_ValidateINT_MAX              | playerCount is INT_MAX | The playerCount is rejected | :white_checkmark:        |
 | TC6_ValidateINT_MIN              | playerCount is INT_MIN | The playerCount is rejected | :white_checkmark: |
-| TC7_ValidateInRangeOfValidGame   | playerCount is 4       | The playerCount is accepted | :heavy_multiplication_x: |
+| TC7_ValidateInRangeOfValidGame   | playerCount is 4       | The playerCount is accepted | :white_checkmark: |
 
