@@ -11,6 +11,8 @@ public class PlayerSetupService {
     }
 
     public void validateUniqueColors(List<PlayerColor> colors) {
+    public boolean validatePlayerCount(int playerCount) {
+        return playerCount >= 2 && playerCount <= 6;
     }
 
 }
