@@ -48,3 +48,19 @@ YC Qiu
 Connor King
 1. Nothing to report
 
+# Week 6 (05/04/2026-05/10/2026)
+**Planning and Progress Tracking**:
+
+Samuel Grayson
+1. [done] : Begin the week 6 progress update edits.
+2. [done] : Complete BVA for player count initilization ([Links to PR]https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/36)
+3. [done] : Complete TDD for player count initilization, fully implement player count logic, and close out issue. ([Links_to_issue]https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/4) ([Links to PR]https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/36) 
+4. [in-progress] : Complete BVA, TDD, and full implementation for player color initilization. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/7)
+5. [in-progress] : Complete BVA, TDD, and full implementation for dice rolling and comparison rules. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/28)
+6. [in-progress] : Complete BVA, TDD, and full implementation for attack validation rules. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/27)
+7. [in-progress] : Setup linter(s).
+8. [in-progress] : Write new issues for future tasks. 
+
+
+
+
