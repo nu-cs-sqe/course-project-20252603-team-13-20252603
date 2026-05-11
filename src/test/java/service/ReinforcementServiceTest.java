@@ -13,6 +13,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ReinforcementServiceTest {
 
+    @Test
+    void shouldReturnMinimumReinforcementWhenPlayerOwnsFewTerritories() {
 
+    }
+
+    @Test
+    void shouldCalculateBaseReinforcementFromTerritoryCount() {
+
+    }
+
+    @Test
+    void shouldCalculateCorrectReinforcementAtBoundaryValues() {
+
+    }
 
 }
