@@ -59,7 +59,12 @@ Samuel Grayson
 5. [in-progress] : Complete BVA, TDD, and full implementation for dice rolling and comparison rules. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/28)
 6. [in-progress] : Complete BVA, TDD, and full implementation for attack validation rules. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/27)
 7. [in-progress] : Setup linter(s).
-8. [in-progress] : Write new issues for future tasks. 
+8. [in-progress] : Write new issues for future tasks.
+
+Connor King
+1. [Done] : Complete BVA, TDD, and full implementation for placeInitialOneArmyPerTerritory. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/8)
+2. [in-progress] : Working on Spotbugs. Implemented in branch, but needed revisions for completion. Made additional issue for checkstyle, but not best left not pursued untill spotbugs complete, and full team discussion on config is complete
+3. [in-progress] : StartingNewGame: Calculate remaining setup armies and allow valid placement ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/11)
 
 
 
