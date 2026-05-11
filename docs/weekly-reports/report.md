@@ -66,6 +66,10 @@ Connor King
 2. [in-progress] : Working on Spotbugs. Implemented in branch, but needed revisions for completion. Made additional issue for checkstyle, but not best left not pursued untill spotbugs complete, and full team discussion on config is complete
 3. [in-progress] : StartingNewGame: Calculate remaining setup armies and allow valid placement ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/11)
 
+YC Qiu
+1. [Pending PR]: Implement territory conquest transfer in attack phase. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/30)
+2. [Pending PR]: Implement army loss updates after a battle round. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/29)
+
 
 
 
