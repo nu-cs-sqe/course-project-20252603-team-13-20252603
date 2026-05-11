@@ -45,9 +45,9 @@ public class ReinforcementService {
     //Optional helpers:
     boolean controlsContinent(Player player, Continent continent, GameState gameState){
         List<Territory> territories = gameState.getTerritories();
-        territories.stream().filter(territory -> territory.getContinent() == continent);
+        List<Territory> new_territories = territories.stream().filter(territory -> territory.getContinent() == continent);
         List<String> continent_territories = TerritoryCatalog.TERRITORIES_BY_CONTINENT.get(continent);
-        if (territories.size() == continent_territories.size()) {
+        if (new_territories.size() == continent_territories.size()) {
             return true;
         }
         else{
