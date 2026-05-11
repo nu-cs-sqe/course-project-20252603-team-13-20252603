@@ -1,12 +1,16 @@
 package service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import domain.GameConstants;
@@ -320,6 +324,71 @@ public class TerritoryAssignmentServiceTest {
             assertNotNull(t.getOwner(), "Territory " + t.getName() + " should have an owner");
             assertTrue(t.getOwner().getId() == 1 || t.getOwner().getId() == 2,
                 "Territory " + t.getName() + " owner should be one of the players");
+        }
+    }
+
+    @Test
+    public void placeInitialOneArmy_emptyState() {
+        TerritoryAssignmentService service = new TerritoryAssignmentService();
+        GameState state = new GameState();
+
+        state.setTerritories(List.of());
+
+        service.placeInitialOneArmyPerTerritory(state);
+
+        assertEquals(0, state.getTerritories().size());
+    }
+
+    @Test
+    public void placeInitialOneArmy_singleTerritory() {
+        TerritoryAssignmentService service = new TerritoryAssignmentService();
+        GameState state = new GameState();
+
+        Player player = new Player(1, "Alice", "red", 5, new ArrayList<>());
+        Territory territory = new Territory("Alaska", player, 0, Continent.NORTH_AMERICA);
+        state.setTerritories(List.of(territory));
+
+        service.placeInitialOneArmyPerTerritory(state);
+
+        assertEquals(1, state.getTerritories().size());
+        assertEquals(1, territory.getArmyCount());
+    }
+
+    @Test
+    public void placeInitialOneArmy_multipleTerritories() {
+        TerritoryAssignmentService service = new TerritoryAssignmentService();
+        GameState state = new GameState();
+
+        Player player = new Player(1, "Alice", "red", 5, new ArrayList<>());
+        Territory territory1 = new Territory("Alaska", player, 0, Continent.NORTH_AMERICA);
+        Territory territory2 = new Territory("Northwest Territory", player, 0, Continent.NORTH_AMERICA);
+        state.setTerritories(List.of(territory1, territory2));
+
+        service.placeInitialOneArmyPerTerritory(state);
+
+        assertEquals(2, state.getTerritories().size());
+        assertEquals(1, territory1.getArmyCount());
+        assertEquals(1, territory2.getArmyCount());
+    }
+
+    @Test
+    public void placeInitialOneArmy_maxTerritories() {
+        TerritoryAssignmentService service = new TerritoryAssignmentService();
+        GameState state = new GameState();
+        Player player = new Player(1, "Alice", "red", 5, new ArrayList<>());
+        List<Territory> territories = new ArrayList<>();
+
+        for (int i = 1; i <= GameConstants.TOTAL_TERRITORIES; i++) {
+            territories.add(new Territory("Territory " + i, player, 0, Continent.NORTH_AMERICA));
+        }
+
+        state.setTerritories(territories);
+
+        service.placeInitialOneArmyPerTerritory(state);
+
+        assertEquals(GameConstants.TOTAL_TERRITORIES, state.getTerritories().size());
+        for (Territory territory : state.getTerritories()) {
+            assertEquals(1, territory.getArmyCount());
         }
     }
 }
