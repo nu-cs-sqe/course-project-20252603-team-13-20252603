@@ -1,12 +1,16 @@
 package service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import domain.GameConstants;
@@ -321,5 +325,17 @@ public class TerritoryAssignmentServiceTest {
             assertTrue(t.getOwner().getId() == 1 || t.getOwner().getId() == 2,
                 "Territory " + t.getName() + " owner should be one of the players");
         }
+    }
+
+     @Test
+    public void placeInitialOneArmy_emptyState() {
+        TerritoryAssignmentService service = new TerritoryAssignmentService();
+        GameState state = new GameState();
+
+        state.setTerritories(List.of());
+
+        service.placeInitialOneArmyPerTerritory(state);
+
+        assertEquals(0, state.getTerritories().size());
     }
 }
