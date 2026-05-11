@@ -70,6 +70,9 @@ YC Qiu
 1. [Pending PR]: Implement territory conquest transfer in attack phase. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/30)
 2. [Pending PR]: Implement army loss updates after a battle round. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/29)
 
-
+Luke Wejman
+1. [in-progress]: Implement army placement validation during reinforcement. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/26)
+2. [in-progress]: Implement continent bonus logic. (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/25)
+3. [in-progress]: Implement reinforcement calculation (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/24)
 
 
