@@ -327,7 +327,7 @@ public class TerritoryAssignmentServiceTest {
         }
     }
 
-     @Test
+    @Test
     public void placeInitialOneArmy_emptyState() {
         TerritoryAssignmentService service = new TerritoryAssignmentService();
         GameState state = new GameState();
@@ -337,5 +337,20 @@ public class TerritoryAssignmentServiceTest {
         service.placeInitialOneArmyPerTerritory(state);
 
         assertEquals(0, state.getTerritories().size());
+    }
+
+    @Test
+    public void placeInitialOneArmy_singleTerritory() {
+        TerritoryAssignmentService service = new TerritoryAssignmentService();
+        GameState state = new GameState();
+
+        Player player = new Player(1, "Alice", "red", 5, new ArrayList<>());
+        Territory territory = new Territory("Alaska", player, 0, Continent.NORTH_AMERICA);
+        state.setTerritories(List.of(territory));
+
+        service.placeInitialOneArmyPerTerritory(state);
+
+        assertEquals(1, state.getTerritories().size());
+        assertEquals(1, territory.getArmyCount());
     }
 }
