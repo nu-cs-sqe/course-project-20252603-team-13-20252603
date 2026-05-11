@@ -44,10 +44,10 @@
 
 ### Method under test: `placeInitialOneArmyPerTerritory(GameState gameState)`
 
-|              | State of the System | Expected output | Implemented?              |
-|--------------|---------------------|-----------------|---------------------------|
-| TC18_placeInitialOneArmy_emptyState | gameState has 0 territories assigned to any player | no territory army counts change | :x: |
-| TC19_placeInitialOneArmy_singleTerritory | gameState has 1 assigned territory with armyCount = 0 | that territory's armyCount becomes 1 | :x: |
-| TC20_placeInitialOneArmy_multipleTerritories | gameState has 2 assigned territories with armyCount values 0 and 0 | both territories' armyCount values become 1 | :x: |
-| TC21_placeInitialOneArmy_maxTerritories | gameState has 42 assigned territories, each with armyCount = 0 | all 42 territories end with armyCount = 1 | :x: |
+|              | State of the System                                                                              | Expected output | Implemented?             |
+|--------------|--------------------------------------------------------------------------------------------------|-----------------|--------------------------|
+| TC18_placeInitialOneArmy_emptyState | gameState has 0 territories assigned to any player                                               | no territory army counts change | :white_check_mark: |
+| TC19_placeInitialOneArmy_singleTerritory | gameState has 1 assigned territory with armyCount = 0                                            | that territory's armyCount becomes 1 | :white_check_mark: |
+| TC20_placeInitialOneArmy_multipleTerritories | gameState has 2 assigned territories with armyCount values 0 and 0                               | both territories' armyCount values become 1 | :white_check_mark: |
+| TC21_placeInitialOneArmy_maxTerritories | gameState has 42 (GameConstants.TOTAL_TERRITORIES) assigned territories, each with armyCount = 0 | all 42 territories end with armyCount = 1 | :white_check_mark: |
 

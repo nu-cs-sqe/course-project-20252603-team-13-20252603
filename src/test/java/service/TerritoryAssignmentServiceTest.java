@@ -370,4 +370,25 @@ public class TerritoryAssignmentServiceTest {
         assertEquals(1, territory1.getArmyCount());
         assertEquals(1, territory2.getArmyCount());
     }
+
+    @Test
+    public void placeInitialOneArmy_maxTerritories() {
+        TerritoryAssignmentService service = new TerritoryAssignmentService();
+        GameState state = new GameState();
+        Player player = new Player(1, "Alice", "red", 5, new ArrayList<>());
+        List<Territory> territories = new ArrayList<>();
+
+        for (int i = 1; i <= GameConstants.TOTAL_TERRITORIES; i++) {
+            territories.add(new Territory("Territory " + i, player, 0, Continent.NORTH_AMERICA));
+        }
+
+        state.setTerritories(territories);
+
+        service.placeInitialOneArmyPerTerritory(state);
+
+        assertEquals(GameConstants.TOTAL_TERRITORIES, state.getTerritories().size());
+        for (Territory territory : state.getTerritories()) {
+            assertEquals(1, territory.getArmyCount());
+        }
+    }
 }
