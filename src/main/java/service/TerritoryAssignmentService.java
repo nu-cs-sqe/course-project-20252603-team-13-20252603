@@ -72,6 +72,12 @@ public class TerritoryAssignmentService {
 	}
 
 	public void placeInitialOneArmyPerTerritory(GameState state){
-		
+
+		List<Territory> AllTeritories = state.getTerritories();
+
+		for (int i =0; i < AllTeritories.size(); i++) {
+			Territory territory = state.getTerritories().get(i);
+			territory.setArmyCount(1);
+		}
 	}
 }
