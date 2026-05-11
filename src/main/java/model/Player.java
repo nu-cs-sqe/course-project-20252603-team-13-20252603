@@ -1,20 +1,22 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
 
 	private int id;
 	private String name;
 	private String color;
 	private int remainingArmiesToPlace;
+	private List<Territory> controlledTerritories;
 
-	public Player() {
-	}
-
-	public Player(int id, String name, String color, int remainingArmiesToPlace) {
+	public Player(int id, String name, String color, int remainingArmiesToPlace, List<Territory> controlledTerritories) {
 		setId(id);
 		setName(name);
 		setColor(color);
 		setRemainingArmiesToPlace(remainingArmiesToPlace);
+		setControlledTerritories(controlledTerritories);
 	}
 
 	public int getId() {
@@ -33,7 +35,7 @@ public class Player {
 	}
 
 	public void setName(String name) {
-		if (name == null || name.trim().isEmpty()) {
+		if (name.trim().isEmpty()) {
 			throw new IllegalArgumentException("name cannot be null or blank");
 		}
 		this.name = name;
@@ -44,9 +46,6 @@ public class Player {
 	}
 
 	public void setColor(String color) {
-		if (color == null || color.trim().isEmpty()) {
-			throw new IllegalArgumentException("color cannot be null or blank");
-		}
 		this.color = color;
 	}
 
@@ -60,4 +59,24 @@ public class Player {
 		}
 		this.remainingArmiesToPlace = remainingArmiesToPlace;
 	}
+
+	public List<Territory> getControlledTerritories() {
+		return controlledTerritories;
+	}
+
+	public void setControlledTerritories(List<Territory> territories) {
+		this.controlledTerritories = new ArrayList<>(territories);
+	}
+
+	public int getControlledTerritoryCount() {
+		return controlledTerritories.size();
+	}
+
+	public void addControlledTerritory(Territory territory) {
+		if (!controlledTerritories.contains(territory)) {
+			controlledTerritories.add(territory);
+		}
+	}
+
+	
 }
