@@ -309,7 +309,64 @@ public class ReinforcementServiceTest {
 
     @Test
     void shouldReturnCombinedBonusWhenPlayerControlsMultipleContinents() {
-        // 3 players created, each controls 2 continents
+        // 1 player created, each controls 2 continents
+        ReinforcementService rs = new ReinforcementService();
+        Territory t1 = new Territory();
+        Territory t2 = new Territory();
+        Territory t3 = new Territory();
+        Territory t4 = new Territory();
+        Territory t5 = new Territory();
+        Territory t6 = new Territory();
+        Territory t7 = new Territory();
+        Territory t8 = new Territory();
+        Territory t9 = new Territory();
+        Territory t10 = new Territory();
+        GameState gameState = new GameState();
+        List<Territory> controlled_territories = List.of(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10);
+        Player player1 = new Player(1, "A", "Red", 0, controlled_territories);
+        t1.setOwner(player1);
+        t2.setOwner(player1);
+        t3.setOwner(player1);
+        t4.setOwner(player1);
+        t5.setOwner(player1);
+        t6.setOwner(player1);
+        t7.setOwner(player1);
+        t8.setOwner(player1);
+        t9.setOwner(player1);
+        t10.setOwner(player1);
+        t1.setArmyCount(3);
+        t2.setArmyCount(3);
+        t3.setArmyCount(3);
+        t4.setArmyCount(3);
+        t5.setArmyCount(3);
+        t6.setArmyCount(3);
+        t7.setArmyCount(3);
+        t8.setArmyCount(3);
+        t9.setArmyCount(3);
+        t10.setArmyCount(3);
+        t1.setContinent(Continent.AFRICA);
+        t2.setContinent(Continent.AFRICA);
+        t3.setContinent(Continent.AFRICA);
+        t4.setContinent(Continent.AFRICA);
+        t5.setContinent(Continent.AFRICA);
+        t6.setContinent(Continent.AFRICA);
+        t7.setContinent(Continent.AUSTRALIA);
+        t8.setContinent(Continent.AUSTRALIA);
+        t9.setContinent(Continent.AUSTRALIA);
+        t10.setContinent(Continent.AUSTRALIA);
+        t1.setName("Egypt");
+        t2.setName("Congo");
+        t3.setName("Madagascar");
+        t4.setName("East Africa");
+        t5.setName("South Africa");
+        t6.setName("Northern Africa");
+        t7.setName("Indonesia");
+        t8.setName("New Guinea");
+        t9.setName("Western Australia");
+        t10.setName("Eastern Australia");
+        int actual_bonus = rs.calculateContinentBonus(player1, gameState);
+        assertEquals(5, actual_bonus);
+
     }
 
     @Test
