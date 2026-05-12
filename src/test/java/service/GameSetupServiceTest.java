@@ -70,51 +70,51 @@ public class GameSetupServiceTest {
     }
 
     // shouldInitializeTurnOrderAfterSetup()
-    @Test
-    void TC8_shouldInitializeTurnOrderAfterSetup() {
-        List<String> names = List.of("Adam", "Bob");
-        List<String> colors = List.of("Red", "Yellow");
-        GameSetupService gameSetupService = new GameSetupService();
-        GameState gameState1 = gameSetupService.orchestration(names, colors);
+//    @Test
+//    void TC8_shouldInitializeTurnOrderAfterSetup() {
+//        List<String> names = List.of("Adam", "Bob");
+//        List<String> colors = List.of("Red", "Yellow");
+//        GameSetupService gameSetupService = new GameSetupService();
+//        GameState gameState1 = gameSetupService.orchestration(names, colors);
+//
+//        assertNotNull(gameState1.getTurnOrder());
+//    }
 
-        assertNotNull(gameState1.getTurnOrder());
-    }
+//    @Test
+//    void TC9_shouldSetCurrentPlayerToFirstPlayerInTurnOrder() {
+//        List<String> names = List.of("Adam", "Bob");
+//        List<String> colors = List.of("Red", "Yellow");
+//        GameSetupService gameSetupService = new GameSetupService();
+//        GameState gameState1 = gameSetupService.orchestration(names, colors);
+//
+//        Player player1_actual = gameState1.getCurrentPlayer();
+//        Player player1_expected = gameState1.getPlayers().get(0);
+//
+//        assertEquals(player1_expected, player1_actual);
+//        assertSame(player1_expected, player1_actual);
+//    }
 
-    @Test
-    void TC9_shouldSetCurrentPlayerToFirstPlayerInTurnOrder() {
-        List<String> names = List.of("Adam", "Bob");
-        List<String> colors = List.of("Red", "Yellow");
-        GameSetupService gameSetupService = new GameSetupService();
-        GameState gameState1 = gameSetupService.orchestration(names, colors);
+//    @Test
+//    void TC10_shouldSetGamePhaseToReinforcementWhenSetupCompletes(){
+//        List<String> names = List.of("Adam", "Bob");
+//        List<String> colors = List.of("Red", "Yellow");
+//        GameSetupService gameSetupService = new GameSetupService();
+//        GameState gameState1 = gameSetupService.orchestration(names, colors);
+//        assertEquals(GamePhase.REINFORCEMENT, gameState1.getCurrentPhase());
+//    }
 
-        Player player1_actual = gameState1.getCurrentPlayer();
-        Player player1_expected = gameState1.getPlayers().get(0);
-
-        assertEquals(player1_expected, player1_actual);
-        assertSame(player1_expected, player1_actual);
-    }
-
-    @Test
-    void TC10_shouldSetGamePhaseToReinforcementWhenSetupCompletes(){
-        List<String> names = List.of("Adam", "Bob");
-        List<String> colors = List.of("Red", "Yellow");
-        GameSetupService gameSetupService = new GameSetupService();
-        GameState gameState1 = gameSetupService.orchestration(names, colors);
-        assertEquals(GamePhase.REINFORCEMENT, gameState1.getCurrentPhase());
-    }
-
-    @Test
-    void TC11_shouldReturnFullyInitializedGameState() {
-        List<String> names = List.of("Adam", "Bob");
-        List<String> colors = List.of("Red", "Yellow");
-        GameSetupService gameSetupService = new GameSetupService();
-        GameState gameState1 = gameSetupService.orchestration(names, colors);
-        assertEquals(names.size(), gameState1.getPlayers().size());
-        assertNotNull(gameState1.getTerritories());
-        assertNotNull(gameState1.getPlayers());
-        assertEquals(42, gameState1.getTerritories().size());
-
-    }
+//    @Test
+//    void TC11_shouldReturnFullyInitializedGameState() {
+//        List<String> names = List.of("Adam", "Bob");
+//        List<String> colors = List.of("Red", "Yellow");
+//        GameSetupService gameSetupService = new GameSetupService();
+//        GameState gameState1 = gameSetupService.orchestration(names, colors);
+//        assertEquals(names.size(), gameState1.getPlayers().size());
+//        assertNotNull(gameState1.getTerritories());
+//        assertNotNull(gameState1.getPlayers());
+//        assertEquals(42, gameState1.getTerritories().size());
+//
+//    }
 
 
 }

@@ -34,8 +34,10 @@ public class GameSetupService {
         // create a new game state
         GameState gameState = new GameState();
         // assign players
+        validatePlayerCount(names.size());
         TerritoryAssignmentService TerrService = new TerritoryAssignmentService();
         TerrService.assignTerritories(gameState);
+        TerrService.placeInitialOneArmyPerTerritory(gameState);
 
 
         return gameState;
