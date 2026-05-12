@@ -15,7 +15,7 @@ public class ReinforcementServiceTest {
 
     @Test
     void shouldReturnZeroBonusWhenPlayerControlsNoFullContinent() {
-        // player has one territory per continent --> results in zero
+        // player has 5/6 in AFRICA continent, one in Asia, no bonus
         ReinforcementService rs = new ReinforcementService();
         Territory t1 = new Territory();
         Territory t2 = new Territory();
@@ -38,16 +38,16 @@ public class ReinforcementServiceTest {
         t5.setArmyCount(3);
         t6.setArmyCount(3);
         t1.setContinent(Continent.AFRICA);
-        t2.setContinent(Continent.NORTH_AMERICA);
-        t3.setContinent(Continent.SOUTH_AMERICA);
-        t4.setContinent(Continent.AUSTRALIA);
-        t5.setContinent(Continent.EUROPE);
+        t2.setContinent(Continent.AFRICA);
+        t3.setContinent(Continent.AFRICA);
+        t4.setContinent(Continent.AFRICA);
+        t5.setContinent(Continent.AFRICA);
         t6.setContinent(Continent.ASIA);
         t1.setName("Egypt");
-        t2.setName("Alaska");
-        t3.setName("Peru");
-        t4.setName("New Zealand");
-        t5.setName("Southern Europe");
+        t2.setName("Congo");
+        t3.setName("Madagascar");
+        t4.setName("East Africa");
+        t5.setName("South Africa");
         t6.setName("Japan");
         int actual_bonus = rs.calculateContinentBonus(player1, gameState);
         assertEquals(0, actual_bonus);
