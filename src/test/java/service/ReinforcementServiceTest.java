@@ -372,6 +372,36 @@ public class ReinforcementServiceTest {
     @Test
     void shouldNotGrantBonusWhenOneTerritoryInContinentIsOwnedByAnotherPlayer() {
         // one continent, 2 players, all but one go to one player
+        ReinforcementService rs = new ReinforcementService();
+        GameState gameState = new GameState();
+        Territory t1 = new Territory();
+        Territory t2 = new Territory();
+        Territory t3 = new Territory();
+        Territory t4 = new Territory();
+        List<Territory> controlled_territories1 = List.of(t1, t2, t3);
+        List<Territory> controlled_territories2 = List.of(t4);
+        Player player1 = new Player(1, "A", "Red", 0, controlled_territories1);
+        Player player2 = new Player(2, "B", "Yellow", 0, controlled_territories2);
+        t1.setOwner(player1);
+        t2.setOwner(player1);
+        t3.setOwner(player1);
+        t4.setOwner(player2);
+        t1.setArmyCount(3);
+        t2.setArmyCount(3);
+        t3.setArmyCount(3);
+        t4.setArmyCount(3);
+        t1.setContinent(Continent.AUSTRALIA);
+        t2.setContinent(Continent.AUSTRALIA);
+        t3.setContinent(Continent.AUSTRALIA);
+        t4.setContinent(Continent.AUSTRALIA);
+        t1.setName("Indonesia");
+        t2.setName("New Guinea");
+        t3.setName("Western Australia");
+        t4.setName("Eastern Australia");
+        int actual_bonus1 = rs.calculateContinentBonus(player1, gameState);
+        assertEquals(0, actual_bonus1);
+        int actual_bonus2 = rs.calculateContinentBonus(player2, gameState);
+        assertEquals(0, actual_bonus2);
     }
 
 }
