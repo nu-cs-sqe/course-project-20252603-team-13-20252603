@@ -11,7 +11,6 @@ public class ReinforcementService {
 
     void placeReinforcements(Player player, Territory territory, int armies, GameState gameState){
         boolean result = canPlaceReinforcements(player, territory, armies, gameState);
-        System.out.println("result:" + result);
         if (result) {
             List<Territory> territories = player.getControlledTerritories();
             int territory_index = territories.indexOf(territory);
