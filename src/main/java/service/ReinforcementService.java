@@ -8,7 +8,9 @@ import java.util.List;
 
 public class ReinforcementService {
 
-
+    /**
+     * Validates and performs placement of reinforcements, throws Illegal Argument Exception is placement is invalid
+     */
     void placeReinforcements(Player player, Territory territory, int armies, GameState gameState){
         boolean result = canPlaceReinforcements(player, territory, armies, gameState);
         if (result) {
@@ -27,16 +29,20 @@ public class ReinforcementService {
         }
 
     }
-    //Optional helpers:
-    boolean canPlaceReinforcements(Player player, Territory territory, int armies, GameState gameState){
 
+    /**
+     * Determines if placement is valid: must not exceed remaining armies and territory is owned by player
+     */
+    boolean canPlaceReinforcements(Player player, Territory territory, int armies, GameState gameState){
+        // get all territories owned by player
         List<Territory> territories = player.getControlledTerritories();
         int territory_index = territories.indexOf(territory);
 
-
+        // if the territory is not found (index is -1)
         if (territory_index == -1){
             return false;
         }
+        // if the armies we want to place is greater than the remaining armies of the player
         if (player.getRemainingArmiesToPlace() < armies) {
             return false;
         }
