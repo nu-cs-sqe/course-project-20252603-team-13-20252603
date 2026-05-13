@@ -37,7 +37,6 @@ public class ReinforcementService {
         if (territory_index == -1){
             return false;
         }
-        // int armies = tr_found.getArmyCount();
         if (player.getRemainingArmiesToPlace() < armies) {
             return false;
         }
