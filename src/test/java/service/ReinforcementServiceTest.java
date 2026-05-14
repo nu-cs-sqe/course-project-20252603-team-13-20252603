@@ -229,13 +229,13 @@ public class ReinforcementServiceTest {
         t55.setContinent(Continent.EUROPE);
         t65.setContinent(Continent.EUROPE);
         t75.setContinent(Continent.EUROPE);
-        t15.setName("Alaska");
-        t25.setName("Northwest Territory");
-        t35.setName("Greenland");
-        t45.setName("Alberta");
-        t55.setName("Ontario");
-        t65.setName("Quebec");
-        t75.setName("Western United States");
+        t15.setName("Iceland");
+        t25.setName("Scandinavia");
+        t35.setName("Ukraine");
+        t45.setName("Great Britain");
+        t55.setName("Northern Europe");
+        t65.setName("Western Europe");
+        t75.setName("Southern Europe");
         int actual_bonus5 = rs.calculateContinentBonus(player5, gameState);
         assertEquals(5, actual_bonus5);
 
