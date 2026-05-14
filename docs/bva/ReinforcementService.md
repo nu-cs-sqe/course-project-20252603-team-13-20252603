@@ -1,0 +1,8 @@
+### Method under test: placeReinforcements(Player player, Territory territory, int armies, GameState gameState)
+|                                                                 | State of the System                                                                  | Expected output                        | Implemented?           |
+|-----------------------------------------------------------------|--------------------------------------------------------------------------------------|----------------------------------------|------------------------|
+| TC1: Allow Player to place armies without error                 | Player controls 2 territories, placement is valid                                    | void, no error call                    | :white_check_mark:     |
+| TC2: Stop Player from placing army on another players territory | Player 1 controls 2 territories, Player 1 controls 1 territory, placement is invalid | IllegalArgumentError                   | :white_check_mark:     |
+| TC3: top Player from placing more armies than they possess      | Player 1 controls 2 territories, placement is valid, but army size is too big        | IllegalArgumentError                   | :white_check_mark:     |
+| TC4: Remaining_Armies decreases after placement                 | Player controls 2 territories, placement is valid                                    | void (remaining army assertion passes) | :white_check_mark:     |
+| TC5: Territory Army increases after placement                   | Player controls 2 territories, placement is valid                                    | void (territory army assertion passes) | :white_check_mark:     |
