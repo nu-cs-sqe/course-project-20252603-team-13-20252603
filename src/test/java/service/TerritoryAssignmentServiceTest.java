@@ -457,7 +457,7 @@ public class TerritoryAssignmentServiceTest {
     }
 
     @Test
-    public void conquerTerritory_conquerUnocupiedTerritory() {
+    public void conquerTerritory_conquerUnoccupiedTerritory() {
         GameState state = new GameState();
         Player attacker = new Player(1, "Alice", "red", 0, new ArrayList<>());
         
