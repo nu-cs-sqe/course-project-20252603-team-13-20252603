@@ -1,13 +1,10 @@
 package service;
 
+import java.util.List;
+
+import model.GameState;
 import model.Player;
 import model.Territory;
-import model.GameState;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
 
 public class TerritoryAssignmentService {
 
@@ -72,5 +69,15 @@ public class TerritoryAssignmentService {
 
 		// Update game state with territories
 		gameState.setTerritories(allTerritories);
+	}
+
+	public void placeInitialOneArmyPerTerritory(GameState state){
+
+		List<Territory> AllTeritories = state.getTerritories();
+
+		for (int i =0; i < AllTeritories.size(); i++) {
+			Territory territory = state.getTerritories().get(i);
+			territory.setArmyCount(1);
+		}
 	}
 }
