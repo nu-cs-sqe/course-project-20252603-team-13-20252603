@@ -5,6 +5,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.jupiter.api.Test;
+
+import domain.GameConstants;
+import model.BattleResult;
+import model.Continent;
+import model.GameState;
+import model.Player;
+import model.Territory;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -13,11 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-import domain.GameConstants;
-import model.Continent;
-import model.GameState;
-import model.Player;
-import model.Territory;
+
 
 public class TerritoryAssignmentServiceTest {
 
@@ -327,6 +332,19 @@ public class TerritoryAssignmentServiceTest {
         }
     }
 
+    // TerritoryService - applyBattleResult tests
+    @Test
+    public void shouldUpdateBothTerritoriesAfterBattleRound() {
+        Territory from = new Territory("Alaska", null, 20, Continent.NORTH_AMERICA);
+        Territory to = new Territory("Greenland", null, 15, Continent.NORTH_AMERICA);
+        BattleResult result = new BattleResult(5, 4);
+
+        TerritoryService.applyBattleResult(from, to, result);
+
+        assertEquals(15, from.getArmyCount(), "Attacker should have 5 fewer armies");
+        assertEquals(11, to.getArmyCount(), "Defender should have 4 fewer armies");
+    }
+  
     @Test
     public void placeInitialOneArmy_emptyState() {
         TerritoryAssignmentService service = new TerritoryAssignmentService();
