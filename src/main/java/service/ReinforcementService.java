@@ -6,45 +6,30 @@ import model.Player;
 import model.Territory;
 import model.Continent;
 import domain.TerritoryCatalog;
-
+import java.util.Map;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ReinforcementService {
-
+    private static final Map<Continent, Integer> CONTINENT_BONUSES = Map.of(
+            Continent.ASIA, 7,
+            Continent.EUROPE, 5,
+            Continent.NORTH_AMERICA, 5,
+            Continent.SOUTH_AMERICA, 2,
+            Continent.AUSTRALIA, 2,
+            Continent.AFRICA, 3
+    );
     /**
      * Calculates Continent Bonus: accumulates bonus for every continent a player controls entirety
      */
     int calculateContinentBonus(Player player, GameState gameState){
-        int total_bonuses = 0;
-        Continent[] continents = Continent.values();
-        for (int i = 0; i < 6; i++){
-            Continent continent = continents[i];
-            // determine if the player controls every territory per continent
-            boolean bonus_result = controlsContinent(player, continent, gameState);
-            if (bonus_result) {
-                if (continent == Continent.ASIA) {
-                    total_bonuses += 7;
-                }
-                else if (continent == Continent.EUROPE) {
-                    total_bonuses += 5;
-                }
-                else if (continent == Continent.NORTH_AMERICA) {
-                    total_bonuses += 5;
-                }
-                else if (continent == Continent.SOUTH_AMERICA) {
-                    total_bonuses += 2;
-                }
-                else if (continent == Continent.AUSTRALIA) {
-                    total_bonuses += 2;
-                }
-                else if (continent == Continent.AFRICA) {
-                    total_bonuses += 3;
-                }
+        int totalBonuses = 0;
+        for (Continent continent : Continent.values()) {
+            if (controlsContinent(player, continent, gameState)) {
+                totalBonuses += CONTINENT_BONUSES.get(continent);
             }
         }
-
-        return total_bonuses;
+        return totalBonuses;
     }
 
     /**
