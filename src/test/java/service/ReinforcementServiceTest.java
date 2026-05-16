@@ -198,7 +198,7 @@ public class ReinforcementServiceTest {
         assertEquals(9, actual_owned_terr14);
         // TC15: 29 -- > 9 armies
         controlled_territories.add(t28);
-        controlled_territories.add(t39);
+        controlled_territories.add(t29);
         player1.setControlledTerritories(controlled_territories);
         int actual_owned_terr15 = rs.calculateBaseReinforcements(player1, gameState1);
         assertEquals(9, actual_owned_terr15);
