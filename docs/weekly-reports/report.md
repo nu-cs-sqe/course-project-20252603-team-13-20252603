@@ -76,4 +76,24 @@ Luke Wejman
 3. [in-progress]: Implement reinforcement calculation (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/24)
 4. [in-progress]: Implement orchestration and finalize gamesetup (https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/22/)
 
+# Week 7 (05/11/2026-05/17/2026)
+**Planning and Progress Tracking**:
+
+Samuel Grayson
+1. [in-progress] : Complete BVA, TDD, and full implementation for player color initilization. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/7)
+2. [in-progress] : Complete BVA, TDD, and full implementation for dice rolling and comparison rules. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/28)
+3. [in-progress] : Complete BVA, TDD, and full implementation for attack validation rules. ([Links_to_issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/27)
+4. [in-progress] : Setup linter(s).
+5. [in-progress] : Write new issues for future tasks.
+
+YC Qiu
+1. [in-progress]: Code review for other PRs
+
+Luke Wejman 
+1. [in-progess] : Initialize turn order and finalize game setup state. ([Links to issues] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/22)
+2. [Pending PR] : Reinforcement Phase: Implement reinforcement calculation. ([Links to issues] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/41)
+3. [Pending PR] : Reinforcement Phase: Implement continent bonus logic. ([Links to issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/40)
+4. [Pending PR] : Reinforcement Phase: Implement army placement validation during reinforcement. ([Links to issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/pull/39)
+5. [in-progess] : Fortify Phase: Implement connected-territory validation ([Links to issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/50)
+6. [in-progess] : Fortify Phase: Implement army transfer and phase flow ([Links to issue] https://github.com/nu-cs-sqe/course-project-20252603-team-13-20252603/issues/51)
 
